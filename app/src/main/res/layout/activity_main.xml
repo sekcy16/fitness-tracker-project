@@ -10,9 +10,19 @@
 
     <TextView
         android:id="@+id/user_details"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Welcome to app" />
+
+    <Button
+        android:id="@+id/btnBMICalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI Calculator" />
 
     <Button
         android:text="@string/logout"
