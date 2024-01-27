@@ -13,6 +13,17 @@
         android:theme="@style/Theme.ProjectAppfitness"
         tools:targetApi="31">
         <activity
+            android:name=".Exercises_data"
+            android:exported="false" />
+        <activity
+            android:name=".Exdata"
+            android:exported="false"
+            android:label="@string/title_activity_exdata"
+            android:theme="@style/Theme.ProjectAppfitness" />
+        <activity
+            android:name=".Exercises_list"
+            android:exported="false" />
+        <activity
             android:name=".BMI_Calculator"
             android:exported="false" />
         <activity

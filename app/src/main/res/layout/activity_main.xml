@@ -10,19 +10,26 @@
 
     <TextView
         android:id="@+id/user_details"
-        android:layout_marginBottom="30dp"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to app" />
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Welcome to app"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnBMICalculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BMI Calculator" />
+
+    <Button
+        android:id="@+id/btnEx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exercise" />
+
 
     <Button
         android:text="@string/logout"

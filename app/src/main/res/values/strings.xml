@@ -7,4 +7,34 @@
     <string name="click_to_login">Click to login</string>
     <string name="click_to_register">Click to register</string>
     <string name="logout">Logout</string>
+    <string-array name="exercisename">
+        <item>Crunches</item>
+        <item>Dumbbell lateral raise</item>
+        <item>Lat pulldown</item>
+        <item>Machine chest fly</item>
+        <item>Pull up</item>
+        <item>shoulder press</item>
+        <item>Squat</item>
+        <item>Bench press</item>
+    </string-array>
+    <string name="title_activity_exdata">Exdata</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string-array name="description">
+        <item>เป็นท่าฝึกกล้ามเนื้อหน้าท้อง และช่วยฝึกกล้ามเนื้อซิกแพคส่วนบน เน้นฝึกกล้ามเนื้อส่วนเดียว</item>
+        <item>เป็นท่าออกกําลังกายที่มุ่งเน้นไปที่การพัฒนากล้ามเนื้อหัวไหล่ โดยเฉพาะกล้ามหัวไหล่ด้านข้าง</item>
+        <item>เป็นท่าฝึกกล้ามเนื้อหลัง ปีก และหัวไหล่ด้านหลัง</item>
+        <item>Machine chest fly</item>
+        <item>Pull up</item>
+        <item>shoulder press</item>
+        <item>Squat</item>
+        <item>Bench press</item>
+    </string-array>
+
+
+
 </resources>
