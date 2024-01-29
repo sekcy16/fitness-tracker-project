@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ProjectAppfitness"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Add_exercises"
+            android:exported="false" />
+        <activity
             android:name=".Exercises_data"
             android:exported="false" />
         <activity

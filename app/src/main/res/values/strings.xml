@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Firebase Auth</string>
+    <string name="app_name">Fitness</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -34,7 +34,6 @@
         <item>Squat</item>
         <item>Bench press</item>
     </string-array>
-
 
 
 </resources>
