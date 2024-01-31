@@ -13,28 +13,20 @@
         android:theme="@style/Theme.ProjectAppfitness"
         tools:targetApi="31">
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".Add_exercises"
-            android:exported="false" />
-        <activity
-            android:name=".Exercises_data"
-            android:exported="false" />
-        <activity
-            android:name=".Exdata"
-            android:exported="false"
-            android:label="@string/title_activity_exdata"
-            android:theme="@style/Theme.ProjectAppfitness" />
-        <activity
             android:name=".Exercises_list"
             android:exported="false" />
         <activity
-            android:name=".BMI_Calculator"
+            android:name=".Profile"
             android:exported="false" />
         <activity
-            android:name=".test"
+            android:name=".Rec_exercises"
             android:exported="false" />
+
+
+        <activity
+            android:name=".BMI_Calculator"
+            android:exported="false" />
+
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -49,6 +41,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".DetailActivityEx"
+            android:exported="true">
         </activity>
     </application>
 

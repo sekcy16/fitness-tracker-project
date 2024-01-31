@@ -1,38 +1,37 @@
 package com.example.project_app_fitness;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.content.res.Resources;
-
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-public class Exercises_list extends AppCompatActivity implements  recyclerviewinterface{
+public class Exercises_list extends AppCompatActivity {
 
-    ArrayList<exercisemodel> exercisemodel = new ArrayList<>();
-    int[] exerciseimage = {  R.drawable.test1 ,R.drawable.test2, R.drawable.test3 ,R.drawable.test4, R.drawable.test5,R.drawable.test6,R.drawable.test7,R.drawable.test8};
+
+    RecyclerView recyclerView;
+    List<DataClassEx> dataList;
+
+    MyAdapter adapter;
+    DataClassEx androidData;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_list);
 
-        RecyclerView recyclerView = findViewById(R.id.myrecyclerview);
-
-        setupexercisemodel();
-
-        e_recyclerviewadapter adapter = new e_recyclerviewadapter (this, exercisemodel, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        // แถบเมนูข้างล่าง
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_Ex);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -41,41 +40,84 @@ public class Exercises_list extends AppCompatActivity implements  recyclerviewin
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (itemId == R.id.bottom_add) {
-                startActivity(new Intent(getApplicationContext(), Add_exercises.class));
+            } else if (itemId == R.id.bottom_Rc) {
+                startActivity(new Intent(getApplicationContext(), Rec_exercises.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
             } else if (itemId == R.id.bottom_Ex) {
                 return true;
             } else if (itemId == R.id.bottom_profile) {
-                startActivity(new Intent(getApplicationContext(), Profile.class));
+                startActivity(new Intent(getApplicationContext(), Profile.class)); // Change this line
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
             }
             return false;
         });
+
+
+        // Search หา ท่า Exercises
+        recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
+
+        // ท่าออกกำลังกาย
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(Exercises_list.this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        dataList = new ArrayList<>();
+
+
+        androidData = new DataClassEx("Push up", R.string.Pushup, "Bodyweight", R.drawable.pushup);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Squat", R.string.Squat, "Bodyweight", R.drawable.squat);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Pull up", R.string.Pullup, "Bodyweight", R.drawable.pullup);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Dip", R.string.Dip, "Bodyweight", R.drawable.dip);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Chin up", R.string.Chinup, "Bodyweight", R.drawable.chinup);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Burpee", R.string.Burpee, "Bodyweight", R.drawable.burpee);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Plank", R.string.Plank, "Bodyweight", R.drawable.plank);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Lunges", R.string.Lunges, "Bodyweight", R.drawable.lunges);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Crunches", R.string.Crunch, "Bodyweight", R.drawable.crunches);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Knee push up", R.string.knee, "Bodyweight", R.drawable.knee);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Wall Shoulder Press", R.string.wall, "Bodyweight", R.drawable.wall);
+        dataList.add(androidData);
+        androidData = new DataClassEx("Bench Press", R.string.bp, "Weight training", R.drawable.bp);
+        dataList.add(androidData);
+        adapter = new MyAdapter(Exercises_list.this, dataList);
+        recyclerView.setAdapter(adapter);
     }
-
-    private void setupexercisemodel(){
-        String[] exercisename = getResources().getStringArray(R.array.exercisename);
-        String[] exercisedescription = getResources().getStringArray(R.array.description);
-
-        for (int i = 0; i<exercisename.length; i++){
-            exercisemodel.add(new exercisemodel(exercisename[i],
-                    exerciseimage[i],exercisedescription[i]));
+    private void searchList(String text){
+        List<DataClassEx> dataSearchList = new ArrayList<>();
+        for (DataClassEx data : dataList){
+            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
+                dataSearchList.add(data);
+            }
+        }
+        if (dataSearchList.isEmpty()){
+            Toast.makeText(this, "Not Found", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setSearchList(dataSearchList);
         }
     }
-
-    @Override
-    public void onitemclick(int position) {
-        Intent intent = new Intent(Exercises_list.this, Exercises_data.class);
-
-        intent.putExtra("NAME", exercisemodel.get(position).getExercisename());
-        intent.putExtra("IMAGE", exercisemodel.get(position).getImage());
-        intent.putExtra("DESCRIPTION", exercisemodel.get(position).getDescription());
-        startActivity(intent);
-
     }
-}

@@ -7,16 +7,15 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Add_exercises extends AppCompatActivity {
+public class Rec_exercises extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_exercises);
+        setContentView(R.layout.activity_rec_exercises);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.bottom_add);
-
+        bottomNavigationView.setSelectedItemId(R.id.bottom_Rc);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -25,10 +24,7 @@ public class Add_exercises extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (itemId == R.id.bottom_add) {
-                startActivity(new Intent(getApplicationContext(), Add_exercises.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+            } else if (itemId == R.id.bottom_Rc) {
                 return true;
             } else if (itemId == R.id.bottom_Ex) {
                 startActivity(new Intent(getApplicationContext(), Exercises_list.class));
@@ -36,6 +32,9 @@ public class Add_exercises extends AppCompatActivity {
                 finish();
                 return true;
             } else if (itemId == R.id.bottom_profile) {
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
                 return true;
             }
             return false;

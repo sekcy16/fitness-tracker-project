@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.bottom_home) {
 
                 return true;
-            } else if (itemId == R.id.bottom_add) {
-                startActivity(new Intent(getApplicationContext(), Add_exercises.class));
+            } else if (itemId == R.id.bottom_Rc) {
+                startActivity(new Intent(getApplicationContext(), Rec_exercises.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
