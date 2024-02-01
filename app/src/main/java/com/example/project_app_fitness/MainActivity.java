@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button button ;
+    Button button, button_bmi;
     TextView textView;
     FirebaseUser user;
     @Override
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
+        button_bmi = findViewById(R.id.button_bmi);
         textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
         if (user == null){
@@ -68,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        button_bmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), BMI_Calculator.class);
                 startActivity(intent);
                 finish();
             }

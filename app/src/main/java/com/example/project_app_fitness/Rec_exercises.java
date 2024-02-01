@@ -1,14 +1,31 @@
 package com.example.project_app_fitness;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.ArrayList;
+import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.os.Bundle;
+import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 public class Rec_exercises extends AppCompatActivity {
 
+    RecyclerView recyclerView;
+    List<DataClassEx> dataList;
+    MyAdapter adapter;
+    DataClassEx androidData;
+    SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +56,54 @@ public class Rec_exercises extends AppCompatActivity {
             }
             return false;
         });
+
+        //code recommend exercise
+        recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.searchrc);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+        {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(Rec_exercises.this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        dataList = new ArrayList<>();
+
+
+        androidData = new DataClassEx("home workout", R.string.beginnerhome, "Beginner", R.drawable.beginner);
+        dataList.add(androidData);
+        androidData = new DataClassEx("3 days gym workout", R.string.threedaygym, "intermediate", R.drawable.threedgym);
+        dataList.add(androidData);
+        androidData = new DataClassEx("4 days gym workout", R.string.fourday, "advance", R.drawable.fd);
+        dataList.add(androidData);
+        androidData = new DataClassEx("5 days gym workout", R.string.fivedaygym, "advance", R.drawable.fd);
+        dataList.add(androidData);
+        androidData = new DataClassEx("6 days gym workout", R.string.sixdaygym, "advance", R.drawable.six);
+        dataList.add(androidData);
+        adapter = new MyAdapter(Rec_exercises.this, dataList);
+        recyclerView.setAdapter(adapter);
     }
-}
+    private void searchList(String text){
+        List<DataClassEx> dataSearchList = new ArrayList<>();
+        for (DataClassEx data : dataList){
+            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
+                dataSearchList.add(data);
+            }
+        }
+        if (dataSearchList.isEmpty()){
+            Toast.makeText(this, "Not Found", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.setSearchList(dataSearchList);
+        }
+    }
+    }
+
+

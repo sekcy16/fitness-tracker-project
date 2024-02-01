@@ -6,13 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Rec_exercises">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recommend"
-        android:textColor="@color/lavender"
-        android:layout_centerInParent="true"
-        android:textSize="36sp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:id="@+id/searchrc"
+        app:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:queryHint="Search..."
+        android:focusable="false"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/searchrc"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
