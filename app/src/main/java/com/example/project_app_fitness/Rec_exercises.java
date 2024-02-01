@@ -84,7 +84,7 @@ public class Rec_exercises extends AppCompatActivity {
         dataList.add(androidData);
         androidData = new DataClassEx("4 days gym workout", R.string.fourday, "advance", R.drawable.fd);
         dataList.add(androidData);
-        androidData = new DataClassEx("5 days gym workout", R.string.fivedaygym, "advance", R.drawable.fd);
+        androidData = new DataClassEx("5 days gym workout", R.string.fivedaygym, "advance", R.drawable.fiveday);
         dataList.add(androidData);
         androidData = new DataClassEx("6 days gym workout", R.string.sixdaygym, "advance", R.drawable.six);
         dataList.add(androidData);

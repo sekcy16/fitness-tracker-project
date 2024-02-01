@@ -6,24 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth auth;
-    Button button, button_bmi;
-    TextView textView;
-    FirebaseUser user;
+    ImageView imageView_bmi , imageView_Exercises_List , imageView_Recommend_Ex , imageView_next_page ;
+    Button  button_bmi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        imageView_bmi = findViewById(R.id.image_Bmi);
+        imageView_Recommend_Ex =findViewById(R.id.imageRec);
+        imageView_Exercises_List = findViewById(R.id.imageEX);
+        imageView_next_page = findViewById(R.id.imagenextpage1);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -51,34 +53,42 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-        auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        button_bmi = findViewById(R.id.button_bmi);
-        textView = findViewById(R.id.user_details);
-        user = auth.getCurrentUser();
-        if (user == null){
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-            textView.setText(user.getEmail());
-        }
-        button.setOnClickListener(new View.OnClickListener() {
+
+        imageView_bmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), BMI_Calculator.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        button_bmi.setOnClickListener(new View.OnClickListener() {
+        imageView_Exercises_List.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), BMI_Calculator.class);
+                Intent intent = new Intent(getApplicationContext(), Exercises_list.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imageView_Recommend_Ex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Rec_exercises.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imageView_next_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Rec_exercises.class);
                 startActivity(intent);
                 finish();
             }
