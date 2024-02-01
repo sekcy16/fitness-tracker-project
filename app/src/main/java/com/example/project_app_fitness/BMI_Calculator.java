@@ -11,11 +11,16 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class BMI_Calculator extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bmi_calculator);
+
+
         setContentView(R.layout.activity_bmi_calculator);
         EditText editTextWeight  = findViewById(R.id.weight);
         EditText editTextHeight  = findViewById(R.id.height);
@@ -31,5 +36,33 @@ public class BMI_Calculator extends AppCompatActivity {
             }
         });
 
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.bottom_home) {
+
+                return true;
+            } else if (itemId == R.id.bottom_Rc) {
+                startActivity(new Intent(getApplicationContext(), Rec_exercises.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.bottom_Ex) {
+                startActivity(new Intent(getApplicationContext(), Exercises_list.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.bottom_profile) {
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            }
+            return false;
+        });
     }
+
 }

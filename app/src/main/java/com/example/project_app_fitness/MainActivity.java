@@ -5,18 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView_bmi , imageView_Exercises_List , imageView_Recommend_Ex , imageView_next_page ;
-    Button  button_bmi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_bmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), BMI_Calculator.class);
                 startActivity(intent);
                 finish();
@@ -67,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_Exercises_List.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Exercises_list.class);
                 startActivity(intent);
                 finish();
@@ -77,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_Recommend_Ex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Rec_exercises.class);
                 startActivity(intent);
                 finish();
@@ -87,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         imageView_next_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Rec_exercises.class);
                 startActivity(intent);
                 finish();

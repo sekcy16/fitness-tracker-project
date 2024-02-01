@@ -104,11 +104,28 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="169dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="162dp"
         android:gravity="center"
         app:srcCompat="@drawable/bmi" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:menu="@menu/bottom_menu"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"/>
 
 </RelativeLayout>
