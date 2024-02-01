@@ -78,15 +78,15 @@ public class Rec_exercises extends AppCompatActivity {
         dataList = new ArrayList<>();
 
 
-        androidData = new DataClassEx("home workout", R.string.beginnerhome, "Beginner", R.drawable.beginner);
+        androidData = new DataClassEx("home workout", R.string.beginnerhome, "Beginner", R.drawable.homeworkout);
         dataList.add(androidData);
-        androidData = new DataClassEx("3 days gym workout", R.string.threedaygym, "intermediate", R.drawable.threedgym);
+        androidData = new DataClassEx("3 days gym workout", R.string.threedaygym, "intermediate", R.drawable.threedaygymworkout);
         dataList.add(androidData);
-        androidData = new DataClassEx("4 days gym workout", R.string.fourday, "advance", R.drawable.fd);
+        androidData = new DataClassEx("4 days gym workout", R.string.fourday, "advance", R.drawable.fourdaygymworkout);
         dataList.add(androidData);
-        androidData = new DataClassEx("5 days gym workout", R.string.fivedaygym, "advance", R.drawable.fiveday);
+        androidData = new DataClassEx("5 days gym workout", R.string.fivedaygym, "advance", R.drawable.fivedaygymworkout);
         dataList.add(androidData);
-        androidData = new DataClassEx("6 days gym workout", R.string.sixdaygym, "advance", R.drawable.six);
+        androidData = new DataClassEx("6 days gym workout", R.string.sixdaygym, "advance", R.drawable.sixdaygymworkout);
         dataList.add(androidData);
         adapter = new MyAdapter(Rec_exercises.this, dataList);
         recyclerView.setAdapter(adapter);

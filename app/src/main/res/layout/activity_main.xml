@@ -14,10 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="658dp"
+        android:layout_marginBottom="688dp"
         android:gravity="center"
         android:text="Welcome to Exercise"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:fontFamily="@font/sut_bold" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -25,18 +26,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="549dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="570dp"
         app:srcCompat="@drawable/logo1" />
+
     <ImageView
         android:id="@+id/imageEX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="375dp"
-        app:srcCompat="@drawable/d1" />
+        android:layout_marginEnd="215dp"
+        android:layout_marginBottom="371dp"
+        app:srcCompat="@drawable/box_exercise" />
 
     <ImageView
         android:id="@+id/image_Bmi"
@@ -46,16 +48,18 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="374dp"
-        app:srcCompat="@drawable/d2" />
+        app:srcCompat="@drawable/box_bmi" />
+
+
     <ImageView
         android:id="@+id/imageRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="197dp"
-        app:srcCompat="@drawable/d3" />
+        android:layout_marginEnd="215dp"
+        android:layout_marginBottom="174dp"
+        app:srcCompat="@drawable/box_recommend_ex" />
 
 
     <ImageView
@@ -65,10 +69,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="61dp"
-        android:layout_marginBottom="231dp"
-        app:srcCompat="@drawable/d4" />
-
-
+        android:layout_marginBottom="211dp"
+        app:srcCompat="@drawable/cl_button_right" />
 
     <TextView
         android:id="@+id/textView4"

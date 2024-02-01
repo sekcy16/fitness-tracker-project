@@ -16,8 +16,9 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="BMI Calculator"
-        android:textSize="26sp"
-        android:textStyle="bold" />
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/sut_bold"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
@@ -48,8 +49,9 @@
         android:layout_marginEnd="146dp"
         android:layout_marginBottom="504dp"
         android:gravity="center"
-        android:padding="15dp"
-        android:text="ยินยัน" />
+        android:textSize="30dp"
+        android:text="ยินยัน"
+        android:fontFamily="@font/sut_bold"/>
 
     <TextView
         android:id="@+id/result"
