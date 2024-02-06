@@ -19,7 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-public class Rec_exercises extends AppCompatActivity {
+public class Rec_exercises extends AppCompatActivity implements ExerciseClickListener{
 
     RecyclerView recyclerView;
     List<DataClassEx> dataList;
@@ -88,10 +88,16 @@ public class Rec_exercises extends AppCompatActivity {
         dataList.add(androidData);
         androidData = new DataClassEx("6 days gym workout", R.string.sixdaygym, "advance", R.drawable.sixdaygymworkout);
         dataList.add(androidData);
-        adapter = new MyAdapter(Rec_exercises.this, dataList);
+        adapter = new MyAdapter(Rec_exercises.this, dataList, Rec_exercises.this);
         recyclerView.setAdapter(adapter);
     }
 
+    //Polymorphism interface ExerciseClickListener
+    @Override
+    public void showText() {
+        // Implement the behavior you want when the user clicks on Exercise Recommendation
+        Toast.makeText(this, "Exercise Recommendation Clicked!", Toast.LENGTH_SHORT).show();
+    }
 
     // Data Searching
     private void searchList(String text){

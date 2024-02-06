@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Exercises_list extends AppCompatActivity {
+public class Exercises_list extends AppCompatActivity implements ExerciseClickListener {
 
 
     RecyclerView recyclerView;
@@ -84,7 +84,12 @@ public class Exercises_list extends AppCompatActivity {
                 searchList(newText);
                 return true;
             }
+
+
+
         });
+
+
 
 
         // ท่าออกกำลังกาย
@@ -171,8 +176,15 @@ public class Exercises_list extends AppCompatActivity {
 
         sortDataList();
 
-        adapter = new MyAdapter(Exercises_list.this, dataList);
+        adapter = new MyAdapter(Exercises_list.this, dataList,Exercises_list.this);
         recyclerView.setAdapter(adapter);
+    }
+
+    //Polymorphism interface ExerciseClickListener
+    @Override
+    public void showText() {
+        // Implement the behavior you want when the user clicks on Exercise List
+        Toast.makeText(this, "Exercise List Clicked!", Toast.LENGTH_SHORT).show();
     }
 
     private void searchList(String text) {
@@ -255,4 +267,6 @@ public class Exercises_list extends AppCompatActivity {
         sortDataList(); // Sort the data if needed
         adapter.notifyDataSetChanged();
     }
+
+
 }

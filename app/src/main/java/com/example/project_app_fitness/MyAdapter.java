@@ -19,14 +19,22 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private Context context;
+
+    //composition DataClassEx
     private List<DataClassEx> dataList;
+
+    //composition ExerciseClickListener
+    private ExerciseClickListener exerciseClickListener;
+
     public void setSearchList(List<DataClassEx> dataSearchList){
         this.dataList = dataSearchList;
         notifyDataSetChanged();
     }
-    public MyAdapter(Context context, List<DataClassEx> dataList){
+    public MyAdapter(Context context, List<DataClassEx> dataList, ExerciseClickListener exerciseClickListener){
         this.context = context;
         this.dataList = dataList;
+        this.exerciseClickListener = exerciseClickListener;
+
     }
     @NonNull
     @Override
@@ -46,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                exerciseClickListener.showText(); // Call the showText() method from the interface
                 Intent intent = new Intent(context, DetailActivityEx.class);
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
