@@ -225,19 +225,12 @@
 เริ่มท่าด้วยการวางขาข้างที่ไม่ถนัดลงบนเก้าอี้ อีกเท้าวางบนพื้น ลักษณะขานำ ขาตาม จากนั้นค่อยๆย่อตัวลง ควบคุมให้น้ำหนักลงตรงกลางตรงๆ หัวเข่าไม่เลยปลายเท้ามากนัก ตัวตั้งตรง มองไปข้างหน้า จากนั้นยกตัวขึ้นกลับสู่ท่าเตรียม นับเป็น 1 ครั้ง ไม่กลั้นหายใจ พยายามหายใจเข้าออกเป็นจังหว่ะ
     </string>
 
-    <string name="recyclerview">RecyclerView is the ViewGroup that contains the views corresponding to your data.
-        Its a view itself so you add RecyclerView into your layout the way you would add any other UI element.
-        Each individual element in the list is defined by a view holder object.
-        RecyclerView is a ViewGroup added to the android studio as a successor of the GridView and ListView.
-        It is an improvement on both of them and can be found in the latest v-7 support packages.
-        It has been created to make possible construction of any lists with XML layouts as an item
-        which can be customized vastly while improving on the efficiency of ListViews and GridViews.
-    </string>
 
 
 
     //แนะนำออกกำลังกาย
-    <string name="beginnerhome">Day 1 \nKnee push up 15 reps * 4 sets\nSquat 12 reps * 3 sets\nlunge 12 reps * 3 sets\nWall Shoulder Press 12 reps * 3 sets\n\nDay 2 \nShoulder push up 15 reps * 4 sets\nWall Shoulder Press 15 reps * 4 sets\nCrunches 15 reps * 4 sets\n\nDay 3
+    <string name="beginnerhome">Day 1 \nKnee push up 15 reps * 4 sets\nSquat 12 reps * 3 sets\nlunge 12 reps * 3 sets\nWall Shoulder Press 12 reps * 3 sets\n\nDay 2 \nShoulder push up 15 reps * 4 sets\nWall Shoulder Press 15 reps * 4 sets\nCrunches 15 reps * 4 sets
+        \n\nDay 3
     </string>
     <string name="threedaygym">Day 1 \nBench Press 3 sets x 5-8 reps\nReverse Grip Lat Pulldown 3 sets x 10-15 reps\nSquat 3 sets x 5-8 reps\nLeg Curl 3 sets x 10-15 reps\nDumbbell Shoulder Press 2 sets x 5-8 reps
         \nIncline Bicep Curl 2 sets x 10-15 reps\nTriceps Pressdown 2 sets x 10-15 reps\n\nDay 2 \nIncline Dumbbell Press 3 sets x 10-15 reps\nSeated Cable Row 3 sets x 8-12 reps\nLeg Press 3 sets x 10-15 reps\nRomanian Deadlift 3 sets x 10-15 reps

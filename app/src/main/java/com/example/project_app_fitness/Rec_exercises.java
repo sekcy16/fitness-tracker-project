@@ -49,7 +49,7 @@ public class Rec_exercises extends AppCompatActivity {
                 finish();
                 return true;
             } else if (itemId == R.id.bottom_profile) {
-                startActivity(new Intent(getApplicationContext(), Profile.class));
+                startActivity(new Intent(getApplicationContext(), Track_Exercises.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
@@ -91,6 +91,9 @@ public class Rec_exercises extends AppCompatActivity {
         adapter = new MyAdapter(Rec_exercises.this, dataList);
         recyclerView.setAdapter(adapter);
     }
+
+
+    // Data Searching
     private void searchList(String text){
         List<DataClassEx> dataSearchList = new ArrayList<>();
         for (DataClassEx data : dataList){
@@ -104,6 +107,5 @@ public class Rec_exercises extends AppCompatActivity {
             adapter.setSearchList(dataSearchList);
         }
     }
-    }
-
+}
 

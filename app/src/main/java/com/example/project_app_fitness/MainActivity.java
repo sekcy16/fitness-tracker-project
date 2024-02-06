@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         imageView_Recommend_Ex =findViewById(R.id.imageRec);
         imageView_Exercises_List = findViewById(R.id.imageEX);
         imageView_next_page = findViewById(R.id.imagenextpage1);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (itemId == R.id.bottom_profile) {
-                startActivity(new Intent(getApplicationContext(), Profile.class));
+                startActivity(new Intent(getApplicationContext(), Track_Exercises.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;

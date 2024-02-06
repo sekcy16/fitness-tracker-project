@@ -39,7 +39,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recImage.setImageResource(dataList.get(position).getDataImage());
         holder.recTitle.setText(dataList.get(position).getDataTitle());
         holder.recDesc.setText(dataList.get(position).getDataDesc());
-        holder.recLang.setText(dataList.get(position).getDataLang());
+
+        // Convert getDataLang() to String to avoid Resources$NotFoundException
+        holder.recLang.setText(String.valueOf(dataList.get(position).getDataLang()));
+
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,4 +72,3 @@ class MyViewHolder extends RecyclerView.ViewHolder{
         recCard = itemView.findViewById(R.id.recCard);
     }
 }
-

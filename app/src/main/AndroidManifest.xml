@@ -13,6 +13,15 @@
         android:theme="@style/Theme.ProjectAppfitness"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Track_Exercises"
+            android:exported="false" />
+        <activity
             android:name=".Exercises_list"
             android:exported="false" />
         <activity
@@ -21,12 +30,9 @@
         <activity
             android:name=".Rec_exercises"
             android:exported="false" />
-
-
         <activity
             android:name=".BMI_Calculator"
             android:exported="false" />
-
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -44,8 +50,7 @@
         </activity>
         <activity
             android:name=".DetailActivityEx"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

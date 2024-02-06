@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/background2"
     tools:context=".BMI_Calculator">
 
 
@@ -12,13 +12,17 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_above="@+id/weight"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/sut_bold"
         android:gravity="center"
         android:text="BMI Calculator"
         android:textSize="50dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/sut_bold"/>
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
@@ -44,14 +48,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
+        android:layout_marginStart="136dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="504dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="442dp"
+        android:fontFamily="@font/sut_bold"
         android:gravity="center"
-        android:textSize="30dp"
         android:text="ยินยัน"
-        android:fontFamily="@font/sut_bold"/>
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/result"
@@ -60,9 +64,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="435dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="395dp"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -74,9 +78,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="595dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="511dp"
         android:gravity="center"
         android:hint="ส่วนสูง CM" />
 
@@ -84,15 +88,12 @@
         android:id="@+id/weight"
         android:layout_width="302dp"
         android:layout_height="65dp"
-        android:layout_below="@+id/textView"
+        android:layout_above="@+id/height"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginBottom="677dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:hint="น้ำหนักตัว KG" />
 

@@ -1,14 +1,25 @@
 package com.example.project_app_fitness;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.View;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -48,12 +59,13 @@ public class Exercises_list extends AppCompatActivity {
             } else if (itemId == R.id.bottom_Ex) {
                 return true;
             } else if (itemId == R.id.bottom_profile) {
-                startActivity(new Intent(getApplicationContext(), Profile.class)); // Change this line
+                startActivity(new Intent(getApplicationContext(), Track_Exercises.class)); // Change this line
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
             }
             return false;
+
         });
 
 
@@ -66,6 +78,7 @@ public class Exercises_list extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 searchList(newText);
@@ -144,8 +157,7 @@ public class Exercises_list extends AppCompatActivity {
         dataList.add(androidData);
         androidData = new DataClassEx("Reverse Fly", R.string.rvfly, "Weight training", R.drawable.revfly);
         dataList.add(androidData);
-        androidData = new DataClassEx("Upright Row", R.string.uprightrow, "Weight training", R.drawable.uprightrow);
-        dataList.add(androidData);
+
         androidData = new DataClassEx("Upright Row", R.string.uprightrow, "Weight training", R.drawable.uprightrow);
         dataList.add(androidData);
         androidData = new DataClassEx("Deadlift", R.string.deadlift, "Weight training", R.drawable.deadlift);
@@ -157,21 +169,90 @@ public class Exercises_list extends AppCompatActivity {
         androidData = new DataClassEx("Bulgarian split squat", R.string.bgsq, "Weight training", R.drawable.split);
         dataList.add(androidData);
 
+        sortDataList();
 
         adapter = new MyAdapter(Exercises_list.this, dataList);
         recyclerView.setAdapter(adapter);
     }
-    private void searchList(String text){
+
+    private void searchList(String text) {
         List<DataClassEx> dataSearchList = new ArrayList<>();
-        for (DataClassEx data : dataList){
+        for (DataClassEx data : dataList) {
             if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
                 dataSearchList.add(data);
             }
         }
-        if (dataSearchList.isEmpty()){
+        if (dataSearchList.isEmpty()) {
             Toast.makeText(this, "Not Found", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setSearchList(dataSearchList);
         }
     }
+
+    // Method to sort dataList
+    private void sortDataList() {
+        Collections.sort(dataList, new Comparator<DataClassEx>() {
+            @Override
+            public int compare(DataClassEx data1, DataClassEx data2) {
+                return data1.getDataTitle().compareTo(data2.getDataTitle());
+            }
+        });
     }
+
+    public void importFromFile(View view) {
+        // Launch file picker intent
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*"); // Allow all file types
+        startActivityForResult(intent, FILE_PICK_REQUEST);
+    }
+
+    private static final int FILE_PICK_REQUEST = 123;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == FILE_PICK_REQUEST && resultCode == RESULT_OK) {
+            if (data != null) {
+                // Process the selected file
+                Uri fileUri = data.getData();
+                if (fileUri != null) {
+                    // Call a method to handle file input
+                    handleFileInput(fileUri);
+                }
+            }
+        }
+    }
+
+    private void handleFileInput(Uri fileUri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(fileUri);
+            if (inputStream != null) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    // Parse the line into exercise data
+                    String[] exerciseData = line.split(",");
+
+                    // Ensure the line has enough elements
+                    if (exerciseData.length >= 4) {
+                        String title = exerciseData[0].trim();
+                        int descriptionResId = getResources().getIdentifier(exerciseData[1].trim(), "string", getPackageName());
+                        String category = exerciseData[2].trim();
+                        int imageResId = getResources().getIdentifier(exerciseData[3].trim(), "drawable", getPackageName());
+
+                        // Add the exercise data to dataList
+                        DataClassEx exercise = new DataClassEx(title, descriptionResId, category, imageResId);
+                        dataList.add(exercise);
+                    }
+                }
+                inputStream.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // After updating dataList, you might want to refresh the adapter
+        sortDataList(); // Sort the data if needed
+        adapter.notifyDataSetChanged();
+    }
+}
